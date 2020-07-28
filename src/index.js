@@ -2,7 +2,6 @@ const noSleep = new NoSleep();
 const tmpCanvas = document.createElement('canvas');
 const remSize = parseInt(getComputedStyle(document.documentElement).fontSize);
 let bgm = new Audio('mp3/bgm.mp3');
-bgm.loop = true;
 bgm.volume = 0.5;
 let sound = new Audio();
 let timerInterval;
@@ -41,6 +40,7 @@ function startTimer() {
     button.innerText = 'ストップ';
     button.onclick = function() { stopTimer(); }
     if (bgmButton.dataset && bgmButton.dataset.enabled == 'true') {
+      bgm.loop = true;
       bgm.play();
     }
     startTime = Date.now();
@@ -160,12 +160,13 @@ function toggleBGM() {
     button.classList.remove('close');
     button.dataset.enabled = 'false';
     localStorage.setItem('bgm', 0);
-    bgm.pause();
+    bgm.loop = false;
+    bgm.play();
   } else {
     button.classList.add('close');
     button.dataset.enabled = 'true';
     localStorage.setItem('bgm', 1);
-    bgm.play();
+    bgm.pause();
   }
 }
 function toggleDarkMode() {
