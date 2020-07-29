@@ -16,12 +16,10 @@ function loadConfig() {
   if (localStorage.getItem('bgm') == 1) {
     var button = document.getElementById('bgmButton');
     button.classList.remove('close');
-    button.dataset.enabled = 'true';
   }
   if (localStorage.getItem('noSleep') == 1) {
     var button = document.getElementById('noSleepButton');
     button.classList.remove('close');
-    button.dataset.enabled = 'true';
   }
 }
 loadConfig();
@@ -39,10 +37,6 @@ function startTimer() {
     var button = document.getElementById('startButton');
     button.innerText = 'ストップ';
     button.onclick = function() { stopTimer(); }
-    if (bgmButton.dataset && bgmButton.dataset.enabled == 'true') {
-      bgm.loop = true;
-      bgm.play();
-    }
     startTime = Date.now();
     timerInterval = setInterval(function() {
       tick();
@@ -95,6 +89,10 @@ function tick() {
     min = Math.ceil(t / 60000);
     if (min == 0) { min = '-0'; }
   } else {
+    if (localStorage.getItem('bgm') == 1) {
+      bgm.loop = true;
+      bgm.play();
+    }
     min = Math.floor(t / 60000);
   }
   var sec = Math.round(Math.abs(t) % 60000 / 1000);
@@ -142,31 +140,28 @@ function resizeFontSize(node) {
 }
 function toggleNoSleep() {
   var button = document.getElementById('noSleepButton');
-  if (button.dataset && button.dataset.enabled == 'true') {
+  if (localStorage.getItem('noSleep') == 1) {
     button.classList.add('close');
-    button.dataset.enabled = 'false';
     localStorage.setItem('noSleep', 0);
     noSleep.disable();
   } else {
     button.classList.remove('close');
-    button.dataset.enabled = 'true';
     localStorage.setItem('noSleep', 1);
     noSleep.enable();
   }
 }
 function toggleBGM() {
   var button = document.getElementById('bgmButton');
-  if (button.dataset && button.dataset.enabled == 'true') {
-    button.classList.remove('close');
-    button.dataset.enabled = 'false';
+  console.log(localStorage.getItem('bgm'));
+  if (localStorage.getItem('bgm') == 1) {
+    button.classList.add('close');
     localStorage.setItem('bgm', 0);
+    bgm.pause();
+  } else {
+    button.classList.remove('close');
+    localStorage.setItem('bgm', 1);
     bgm.loop = false;
     bgm.play();
-  } else {
-    button.classList.add('close');
-    button.dataset.enabled = 'true';
-    localStorage.setItem('bgm', 1);
-    bgm.pause();
   }
 }
 function toggleDarkMode() {
