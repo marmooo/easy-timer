@@ -7,7 +7,7 @@ startTime=Date.now();timerInterval=setInterval(function(){tick();},200);}}
 function resetTimer(){if(timerInterval){clearInterval(timerInterval);}
 bgm.pause();sound.pause();var button=document.getElementById('startButton');button.innerText='スタート';button.onclick=function(){startTimer()};var timerText=document.getElementById('timerText');var timerValue=document.getElementById('timerValue');var t=parseInt(timerValue.value);duration=t*60000;if(isNaN(duration)||duration<0){duration=0;}else if(999<t){timerValue.value=999;duration=999*60000;}
 var min=Math.floor(duration/60000);var sec=Math.floor(Math.abs(duration)%60000/1000);timerText.innerText=min+':'+('0'+sec).slice(-2);resizeFontSize(timerText);}
-function tick(){var timerText=document.getElementById('timerText');var min;var t=startTime+duration-Date.now();if(t<0){bgm.pause();if(t<-300000){sound.pause();clearInterval(vibrateInterval);}else{if(sound.src.includes('none.mp3')){if(!vibrateInterval){vibrateInterval=setInterval(function(){navigator.vibrate(200);},200);}}else{sound.play();}}
+function tick(){var timerText=document.getElementById('timerText');var min;var t=startTime+duration-Date.now();if(t<0){bgm.pause();if(t<-300000){sound.pause();clearInterval(vibrateInterval);}else{if(sound.src.includes('none.mp3')){if(!vibrateInterval){vibrateInterval=setInterval(function(){navigator.vibrate(400);},400);}}else{sound.play();}}
 min=Math.ceil(t/60000);if(min==0){min='-0';}}else{if(localStorage.getItem('bgm')==1){bgm.loop=true;bgm.play();}
 min=Math.floor(t/60000);}
 var sec=Math.floor(Math.abs(t)%60000/1000);timerText.innerText=min+':'+('0'+sec).slice(-2);resizeFontSize(timerText);}

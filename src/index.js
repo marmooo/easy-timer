@@ -79,8 +79,8 @@ function tick() {
       if (sound.src.includes('none.mp3')) {
         if (!vibrateInterval) {
           vibrateInterval = setInterval(function() {
-            navigator.vibrate(200);
-          }, 200);
+            navigator.vibrate(400);
+          }, 400);
         }
       } else {
         sound.play();
