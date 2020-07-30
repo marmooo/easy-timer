@@ -39,7 +39,7 @@ function startTimer() {
     startTime = Date.now();
     timerInterval = setInterval(function() {
       tick();
-    }, 1000);
+    }, 200);
   }
 }
 function resetTimer() {
@@ -174,7 +174,6 @@ function toggleNoSleep() {
 }
 function toggleBGM() {
   var button = document.getElementById('bgmButton');
-  console.log(localStorage.getItem('bgm'));
   if (localStorage.getItem('bgm') == 1) {
     button.classList.add('close');
     localStorage.setItem('bgm', 0);
