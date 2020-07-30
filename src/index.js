@@ -26,6 +26,10 @@ loadConfig();
 function stopTimer() {
   clearInterval(timerInterval);
   bgm.pause();
+  sound.pause();
+  if (vibrationInterval) {
+    clearInterval(vibrateInterval);
+  }
   var button = document.getElementById('startButton');
   button.innerText = 'スタート';
   button.onclick = function() { startTimer() };
@@ -48,6 +52,9 @@ function resetTimer() {
   }
   bgm.pause();
   sound.pause();
+  if (vibrationInterval) {
+    clearInterval(vibrateInterval);
+  }
   var button = document.getElementById('startButton');
   button.innerText = 'スタート';
   button.onclick = function() { startTimer() };
