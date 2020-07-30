@@ -48,6 +48,7 @@ function resetTimer() {
     clearInterval(timerInterval);
   }
   bgm.pause();
+  sound.pause();
   var button = document.getElementById('startButton');
   button.innerText = 'スタート';
   button.onclick = function() { startTimer() };
@@ -62,7 +63,7 @@ function resetTimer() {
     duration = 999 * 60000;
   }
   var min = Math.floor(duration / 60000);
-  var sec = Math.abs(duration) % 60000 / 1000;
+  var sec = Math.floor(Math.abs(duration) % 60000 / 1000);
   timerText.innerText = min + ':' + ('0' + sec).slice(-2);
   resizeFontSize(timerText);
 }
@@ -95,7 +96,7 @@ function tick() {
     }
     min = Math.floor(t / 60000);
   }
-  var sec = Math.round(Math.abs(t) % 60000 / 1000);
+  var sec = Math.floor(Math.abs(t) % 60000 / 1000);
   timerText.innerText = min + ':' + ('0' + sec).slice(-2);
   resizeFontSize(timerText);
 }
