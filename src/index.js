@@ -27,7 +27,7 @@ function stopTimer() {
   clearInterval(timerInterval);
   bgm.pause();
   sound.pause();
-  if (vibrationInterval) {
+  if (vibrateInterval) {
     clearInterval(vibrateInterval);
   }
   var button = document.getElementById('startButton');
@@ -52,7 +52,7 @@ function resetTimer() {
   }
   bgm.pause();
   sound.pause();
-  if (vibrationInterval) {
+  if (vibrateInterval) {
     clearInterval(vibrateInterval);
   }
   var button = document.getElementById('startButton');
