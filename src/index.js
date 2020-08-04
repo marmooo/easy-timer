@@ -7,6 +7,7 @@ let timerInterval;
 let vibrateInterval;
 let duration = 0;
 let startTime;
+let remainingTime;
 
 function loadConfig() {
   if (localStorage.getItem('darkMode') == 1) {
@@ -40,7 +41,11 @@ function startTimer() {
     var button = document.getElementById('startButton');
     button.innerText = 'ストップ';
     button.onclick = function() { stopTimer(); }
-    startTime = Date.now();
+    if (remainingTime != 0) {
+      startTime - duration + remainingTime;
+    } else {
+      startTime = Date.now();
+    }
     timerInterval = setInterval(function() {
       tick();
     }, 200);
@@ -55,6 +60,7 @@ function resetTimer() {
   if (vibrateInterval) {
     clearInterval(vibrateInterval);
   }
+  remainingTime = 0;
   var button = document.getElementById('startButton');
   button.innerText = 'スタート';
   button.onclick = function() { startTimer() };
@@ -76,10 +82,10 @@ function resetTimer() {
 function tick() {
   var timerText = document.getElementById('timerText');
   var min;
-  var t = startTime + duration - Date.now();
-  if (t < 0) {  // time over
+  remainingTime = startTime + duration - Date.now();
+  if (remainingTime < 0) {  // time over
     bgm.pause();
-    if (t < -300000) {  // 5min over
+    if (remainingTime < -300000) {  // 5min over
       sound.pause();
       clearInterval(vibrateInterval);
     } else {
@@ -93,16 +99,16 @@ function tick() {
         sound.play();
       }
     }
-    min = Math.ceil(t / 60000);
+    min = Math.ceil(remainingTime / 60000);
     if (min == 0) { min = '-0'; }
   } else {
     if (localStorage.getItem('bgm') == 1) {
       bgm.loop = true;
       bgm.play();
     }
-    min = Math.floor(t / 60000);
+    min = Math.floor(remainingTime / 60000);
   }
-  var sec = Math.floor(Math.abs(t) % 60000 / 1000);
+  var sec = Math.floor(Math.abs(remainingTime) % 60000 / 1000);
   timerText.innerText = min + ':' + ('0' + sec).slice(-2);
   resizeFontSize(timerText);
 }
