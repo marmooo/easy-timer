@@ -4,7 +4,7 @@ if(localStorage.getItem('noSleep')==1){var button=document.getElementById('noSle
 loadConfig();function stopTimer(){clearInterval(timerInterval);bgm.pause();sound.pause();if(vibrateInterval){clearInterval(vibrateInterval);}
 var button=document.getElementById('startButton');button.innerText='スタート';button.onclick=function(){startTimer()};}
 function startTimer(){sound.src='mp3/'+document.getElementById('sound').value+'.mp3';if(!isNaN(duration)&&duration>0){var button=document.getElementById('startButton');button.innerText='ストップ';button.onclick=function(){stopTimer();}
-if(remainingTime!=0){startTime-duration+remainingTime;}else{startTime=Date.now();}
+if(remainingTime!=0){startTime=Date.now()-duration+remainingTime;}else{startTime=Date.now();}
 timerInterval=setInterval(function(){tick();},200);}}
 function resetTimer(){if(timerInterval){clearInterval(timerInterval);}
 bgm.pause();sound.pause();if(vibrateInterval){clearInterval(vibrateInterval);}

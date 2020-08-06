@@ -42,7 +42,7 @@ function startTimer() {
     button.innerText = 'ストップ';
     button.onclick = function() { stopTimer(); }
     if (remainingTime != 0) {
-      startTime - duration + remainingTime;
+      startTime = Date.now() - duration + remainingTime;
     } else {
       startTime = Date.now();
     }
