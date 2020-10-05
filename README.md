@@ -1,8 +1,6 @@
-かんたんタイマー
-================
+# かんたんタイマー
+小さな子にも[使いやすいタイマー](https://marmooo.github.io/easy-timer/)です。
 
-かんたんタイマーは小さな子にも[使いやすいタイマー](https://marmooo.github.io/easy-timer/)です。
-
-# License
-[the MIT license](./LICENSE)
+## License
+MIT
 
