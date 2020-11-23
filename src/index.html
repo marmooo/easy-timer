@@ -37,32 +37,35 @@
     </style>
   </head>
   <body>
-    <nav id="header" class="navbar navbar-expand navbar-light">
-      <div class="container">
-        <a class="navbar-brand" href="/easy-timer/">かんたんタイマー</a>
-        <div class="navbar-nav">
-          <svg id="noSleepButton" onclick="toggleNoSleep()" class="ml-2 close" width="32" height="32" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z"/>
-            <path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
-          </svg>
-          <svg id="bgmButton" onclick="toggleBGM()" class="ml-2 close" width="32" height="32" viewBox="0 0 16 16" fill="currentcolor" xmlns="http://www.w3.org/2000/svg" data-enabled="true">
-            <title>タイマー音を再生</title>
-            <path d="M6 13c0 1.105-1.12 2-2.5 2S1 14.105 1 13c0-1.104 1.12-2 2.5-2s2.5.896 2.5 2zm9-2c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z"></path><path fill-rule="evenodd" d="M14 11V2h1v9h-1zM6 3v10H5V3h1z"></path><path d="M5 2.905a1 1 0 0 1 .9-.995l8-.8a1 1 0 0 1 1.1.995V3L5 4V2.905z"></path>
-          </svg>
-          <button title="ダークモード切替" onclick="toggleDarkMode()" class="ml-2 close">🌓</button>
+    <header id="header">
+      <nav class="navbar navbar-expand navbar-light">
+        <div class="container">
+          <a class="navbar-brand" href="/easy-timer/">かんたんタイマー</a>
+          <div class="navbar-nav">
+            <svg id="noSleepButton" onclick="toggleNoSleep()" class="ml-2 close" width="32" height="32" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <title>常駐化</title>
+              <path d="M2.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z"/>
+              <path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
+            </svg>
+            <svg id="bgmButton" onclick="toggleBGM()" class="ml-2 close" width="32" height="32" viewBox="0 0 16 16" fill="currentcolor" xmlns="http://www.w3.org/2000/svg" data-enabled="true">
+              <title>タイマー音</title>
+              <path d="M6 13c0 1.105-1.12 2-2.5 2S1 14.105 1 13c0-1.104 1.12-2 2.5-2s2.5.896 2.5 2zm9-2c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z"></path><path fill-rule="evenodd" d="M14 11V2h1v9h-1zM6 3v10H5V3h1z"></path><path d="M5 2.905a1 1 0 0 1 .9-.995l8-.8a1 1 0 0 1 1.1.995V3L5 4V2.905z"></path>
+            </svg>
+            <button title="ダークモード切替" onclick="toggleDarkMode()" class="ml-2 close">🌓</button>
+          </div>
         </div>
-      </div>
-    </nav>
-    <div class="container text-center">
+      </nav>
+    </header>
+    <main class="container text-center">
       <noscript>
         <div class="alert alert-warning">JavaScript を ON にしてください</div>
       </noscript>
       <div id="timerHeader" class="form-row pb-3 justify-content-center">
         <div class="col-auto py-1">
-          <input onchange="resetTimer()" id="timerValue" class="form-control form-control-lg text-center" type="tel" size="6" placeholder="時間 (分)">
+          <input onchange="resetTimer()" id="timerValue" class="form-control form-control-lg text-center" type="tel" size="6" placeholder="時間 (分)" aria-label="時間 (分)">
         </div>
         <div class="col-auto py-1">
-          <select id="sound" class="form-control form-control-lg" onchange="changeSound()">
+          <select id="sound" class="form-control form-control-lg" onchange="changeSound()" aria-label="アラーム音">
             <option value="none">音なし</option>
             <option value="suzume">スズメ</option>
             <option value="niwatori">ニワトリ</option>
@@ -82,7 +85,7 @@
           <button onclick="resetTimer()" class="btn btn-primary btn-lg">リセット</button>
         </div>
       </div>
-    </div>
+    </main>
     <footer class="pt-4 alert text-center">
       <div>
         <a class="px-1" href="/">Home</a>
