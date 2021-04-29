@@ -1,4 +1,4 @@
-var CACHE_NAME = '2021-04-29 12:20';
+var CACHE_NAME = '2021-04-29 12:25';
 var urlsToCache = [
   '/easy-timer/',
   '/easy-timer/mp3/bgm.mp3',
