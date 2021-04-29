@@ -13,13 +13,13 @@ function loadConfig() {
   if (localStorage.getItem('darkMode') == 1) {
     document.documentElement.dataset.theme = 'dark';
   }
-  if (localStorage.getItem('bgm') == 1) {
-    var button = document.getElementById('bgmButton');
-    button.classList.remove('close');
+  if (localStorage.getItem('bgm') != 1) {
+    document.getElementById('bgmOn').classList.add('d-none');
+    document.getElementById('bgmOff').classList.remove('d-none');
   }
-  if (localStorage.getItem('noSleep') == 1) {
-    var button = document.getElementById('noSleepButton');
-    button.classList.remove('close');
+  if (localStorage.getItem('noSleep') != 1) {
+    document.getElementById('noSleepOn').classList.add('d-none');
+    document.getElementById('noSleepOff').classList.remove('d-none');
   }
 }
 loadConfig();
@@ -176,11 +176,13 @@ function resizeFontSize(node) {
 function toggleNoSleep() {
   var button = document.getElementById('noSleepButton');
   if (localStorage.getItem('noSleep') == 1) {
-    button.classList.add('close');
+    document.getElementById('noSleepOn').classList.add('d-none');
+    document.getElementById('noSleepOff').classList.remove('d-none');
     localStorage.setItem('noSleep', 0);
     noSleep.disable();
   } else {
-    button.classList.remove('close');
+    document.getElementById('noSleepOn').classList.remove('d-none');
+    document.getElementById('noSleepOff').classList.add('d-none');
     localStorage.setItem('noSleep', 1);
     noSleep.enable();
   }
@@ -188,16 +190,19 @@ function toggleNoSleep() {
 function toggleBGM() {
   var button = document.getElementById('bgmButton');
   if (localStorage.getItem('bgm') == 1) {
-    button.classList.add('close');
+    document.getElementById('bgmOn').classList.add('d-none');
+    document.getElementById('bgmOff').classList.remove('d-none');
     localStorage.setItem('bgm', 0);
     bgm.pause();
   } else {
-    button.classList.remove('close');
+    document.getElementById('bgmOn').classList.remove('d-none');
+    document.getElementById('bgmOff').classList.add('d-none');
     localStorage.setItem('bgm', 1);
     bgm.loop = false;
     bgm.play();
   }
 }
+
 function toggleDarkMode() {
   if (localStorage.getItem('darkMode') == 1) {
     localStorage.setItem('darkMode', 0);
