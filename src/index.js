@@ -181,7 +181,6 @@ function resizeFontSize(node) {
 }
 
 function toggleNoSleep() {
-  var button = document.getElementById('noSleep');
   if (localStorage.getItem('noSleep') == 1) {
     document.getElementById('noSleepOn').classList.add('d-none');
     document.getElementById('noSleepOff').classList.remove('d-none');
@@ -196,7 +195,6 @@ function toggleNoSleep() {
 }
 
 function toggleBGM() {
-  var button = document.getElementById('bgm');
   if (localStorage.getItem('bgm') == 1) {
     document.getElementById('bgmOn').classList.add('d-none');
     document.getElementById('bgmOff').classList.remove('d-none');
