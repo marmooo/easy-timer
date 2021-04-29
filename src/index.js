@@ -35,6 +35,7 @@ function stopTimer() {
   button.innerText = 'スタート';
   button.onclick = function() { startTimer() };
 }
+
 function startTimer() {
   sound.src = 'mp3/' + document.getElementById('sound').value + '.mp3';
   if (!isNaN(duration) && duration > 0) {
@@ -51,6 +52,7 @@ function startTimer() {
     }, 200);
   }
 }
+
 function resetTimer() {
   if (timerInterval) {
     clearInterval(timerInterval);
@@ -79,6 +81,7 @@ function resetTimer() {
   timerText.innerText = min + ':' + ('0' + sec).slice(-2);
   resizeFontSize(timerText);
 }
+
 function tick() {
   var timerText = document.getElementById('timerText');
   var min;
@@ -112,15 +115,18 @@ function tick() {
   timerText.innerText = min + ':' + ('0' + sec).slice(-2);
   resizeFontSize(timerText);
 }
+
 function changeSound() {
   sound.src = 'mp3/' + document.getElementById('sound').value + '.mp3';
 }
+
 function checkSound() {
   sound.pause();
   changeSound();
   sound.loop = false;
   sound.play();
 }
+
 function resizeFontSize(node) {
   // https://stackoverflow.com/questions/118241/
   function getTextWidth(text, font) {
@@ -173,6 +179,7 @@ function resizeFontSize(node) {
     node.style.fontSize = rowFontSize + 'px';
   }
 }
+
 function toggleNoSleep() {
   var button = document.getElementById('noSleepButton');
   if (localStorage.getItem('noSleep') == 1) {
@@ -187,6 +194,7 @@ function toggleNoSleep() {
     noSleep.enable();
   }
 }
+
 function toggleBGM() {
   var button = document.getElementById('bgmButton');
   if (localStorage.getItem('bgm') == 1) {
@@ -212,6 +220,7 @@ function toggleDarkMode() {
     document.documentElement.dataset.theme = 'dark';
   }
 }
+
 var timerText = document.getElementById('timerText');
 resizeFontSize(timerText);
 window.addEventListener('resize', function() {
