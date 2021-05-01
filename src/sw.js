@@ -1,4 +1,4 @@
-var CACHE_NAME = '2021-04-29 12:30';
+var CACHE_NAME = '2021-05-01 17:40';
 var urlsToCache = [
   '/easy-timer/',
   '/easy-timer/mp3/bgm.mp3',
@@ -9,8 +9,8 @@ var urlsToCache = [
   '/easy-timer/mp3/pipipi.mp3',
   '/easy-timer/mp3/kirakira.mp3',
   '/easy-timer/index.js',
-  'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css',
-  'https://cdnjs.cloudflare.com/ajax/libs/nosleep/0.11.0/NoSleep.min.js',
+  'https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css',
+  'https://cdn.jsdelivr.net/npm/nosleep.js@0.12.0/dist/NoSleep.min.js',
 ];
 
 self.addEventListener('install', function(event) {
