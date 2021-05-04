@@ -33,7 +33,8 @@
     <style>
       #timerText { line-height:1.1; }
       svg { cursor:pointer; }
-      html[data-theme="dark"] { filter: invert(1) hue-rotate(180deg); background-color:black; }
+      html[data-theme="dark"] { filter: invert(1) hue-rotate(180deg); }
+      @-moz-document url-prefix() { html[data-theme="dark"] { background-color:black; } }
     </style>
   </head>
   <body>
