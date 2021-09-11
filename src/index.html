@@ -46,15 +46,15 @@
             かんたんタイマー
           </a>
           <div class="navbar-nav">
-            <button title="常駐化" id="noSleep" onclick="toggleNoSleep()" class="btn p-0">
+            <button title="常駐化" id="toggleNoSleep" class="btn p-0">
               <svg id="noSleepOn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16"><path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path></svg>
               <svg id="noSleepOff" class="d-none" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16"><path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2z"></path></svg>
             </button>
-            <button title="タイマー音" onclick="toggleBGM()" class="btn p-0 ms-1">
+            <button title="タイマー音" id="toggleBGM" class="btn p-0 ms-1">
               <svg id="bgmOn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
               <svg id="bgmOff" class="d-none" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M4.27 3L3 4.27l9 9v.28c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4v-1.73L19.73 21 21 19.73 4.27 3zM14 7h4V3h-6v5.18l2 2z"/></svg>
             </button>
-            <button title="ダークモード切替" onclick="toggleDarkMode()" class="fs-4 btn p-0 ms-1">🌓</button>
+            <button title="ダークモード切替" id="toggleDarkMode" class="fs-4 btn p-0 ms-1">🌓</button>
           </div>
         </div>
       </nav>
@@ -65,10 +65,10 @@
       </noscript>
       <div id="timerHeader" class="row pb-3 justify-content-center">
         <div class="col-auto py-1">
-          <input onchange="resetTimer()" id="timerValue" class="form-control form-control-lg text-center" type="tel" size="8" placeholder="時間 (分)" aria-label="時間 (分)">
+          <input id="timerValue" class="form-control form-control-lg text-center" type="tel" size="8" placeholder="時間 (分)" aria-label="時間 (分)">
         </div>
         <div class="col-auto py-1">
-          <select id="sound" class="form-select form-select-lg" onchange="changeSound()" aria-label="アラーム音">
+          <select id="changeSound" class="form-select form-select-lg" aria-label="アラーム音">
             <option value="none">音なし</option>
             <option value="suzume">スズメ</option>
             <option value="niwatori">ニワトリ</option>
@@ -85,7 +85,7 @@
           <button id="startButton" onclick="startTimer()" class="btn btn-primary btn-lg">スタート</button>
         </div>
         <div class="col-auto py-1">
-          <button onclick="resetTimer()" class="btn btn-primary btn-lg">リセット</button>
+          <button id="resetTimer" class="btn btn-primary btn-lg">リセット</button>
         </div>
       </div>
     </main>
