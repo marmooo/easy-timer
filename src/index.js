@@ -32,7 +32,7 @@ function stopTimer() {
     clearInterval(vibrateInterval);
   }
   const button = document.getElementById("startButton");
-  button.innerText = "スタート";
+  button.textContent = "スタート";
   button.onclick = function () {
     startTimer();
   };
@@ -42,7 +42,7 @@ function startTimer() {
   sound.src = "mp3/" + document.getElementById("changeSound").value + ".mp3";
   if (!isNaN(duration) && duration > 0) {
     const button = document.getElementById("startButton");
-    button.innerText = "ストップ";
+    button.textContent = "ストップ";
     button.onclick = function () {
       stopTimer();
     };
@@ -68,7 +68,7 @@ function resetTimer() {
   }
   remainingTime = 0;
   const button = document.getElementById("startButton");
-  button.innerText = "スタート";
+  button.textContent = "スタート";
   button.onclick = startTimer;
   const timerText = document.getElementById("timerText");
   const timerValue = document.getElementById("timerValue");
@@ -82,7 +82,7 @@ function resetTimer() {
   }
   const min = Math.floor(duration / 60000);
   const sec = Math.floor(Math.abs(duration) % 60000 / 1000);
-  timerText.innerText = min + ":" + ("0" + sec).slice(-2);
+  timerText.textContent = min + ":" + ("0" + sec).slice(-2);
   resizeFontSize(timerText);
 }
 
@@ -116,7 +116,7 @@ function tick() {
     min = Math.floor(remainingTime / 60000);
   }
   const sec = Math.floor(Math.abs(remainingTime) % 60000 / 1000);
-  timerText.innerText = min + ":" + ("0" + sec).slice(-2);
+  timerText.textContent = min + ":" + ("0" + sec).slice(-2);
   resizeFontSize(timerText);
 }
 
@@ -167,7 +167,7 @@ function resizeFontSize(node) {
   const fontSize = parseFloat(style.fontSize);
   const lineHeight = parseFloat(style.lineHeight) / fontSize;
   const nodeRect = getNodeRect();
-  const textRect = getTextRect(node.innerText, fontSize, font, lineHeight);
+  const textRect = getTextRect(node.textContent, fontSize, font, lineHeight);
   const paddingRect = getPaddingRect(style);
 
   // https://stackoverflow.com/questions/46653569/
