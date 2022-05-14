@@ -1,6 +1,7 @@
-var CACHE_NAME = '2022-03-19 07:05';
+var CACHE_NAME = '2022-05-14 10:20';
 var urlsToCache = [
   "/easy-timer/",
+  "/easy-timer/index.js",
   "/easy-timer/mp3/bgm.mp3",
   "/easy-timer/mp3/suzume.mp3",
   "/easy-timer/mp3/niwatori.mp3",
@@ -8,8 +9,7 @@ var urlsToCache = [
   "/easy-timer/mp3/semi.mp3",
   "/easy-timer/mp3/pipipi.mp3",
   "/easy-timer/mp3/kirakira.mp3",
-  "/easy-timer/index.js",
-  "/easy-timer/favicon/original.svg",
+  "/easy-timer/favicon/favicon.svg",
   "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css",
   "https://cdn.jsdelivr.net/npm/nosleep.js@0.12.0/dist/NoSleep.min.js",
 ];
