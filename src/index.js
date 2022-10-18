@@ -222,6 +222,7 @@ document.getElementById("toggleNoSleep").onclick = toggleNoSleep;
 document.getElementById("resetTimer").onclick = resetTimer;
 document.getElementById("timerValue").onchange = resetTimer;
 document.getElementById("changeSound").onchange = changeSound;
+document.getElementById("startButton").onclick = startTimer;
 window.addEventListener("resize", function () {
   resizeFontSize(timerText);
 });
