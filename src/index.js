@@ -156,7 +156,7 @@ function resizeFontSize(node) {
   const font = style.fontFamily;
   const fontSize = parseFloat(style.fontSize);
   const lineHeight = parseFloat(style.lineHeight) / fontSize;
-  const nodeRect = [node.parentNode.clientWidth, node.parentNode.clientHeight];
+  const nodeRect = [node.parentNode.offsetWidth, node.parentNode.offsetHeight];
   const textRect = getTextRect(node.textContent, fontSize, font, lineHeight);
   const paddingRect = getPaddingRect(style);
 
