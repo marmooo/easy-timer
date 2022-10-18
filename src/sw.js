@@ -1,4 +1,4 @@
-var CACHE_NAME = "2022-10-18 23:15";
+var CACHE_NAME = "2022-10-19 00:10";
 var urlsToCache = [
   "/easy-timer/",
   "/easy-timer/index.js",
