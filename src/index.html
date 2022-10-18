@@ -33,7 +33,11 @@
     <link rel="manifest" href="/easy-timer/favicon/site.webmanifest">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <style>
-      #timerText { line-height:1.1; overflow:hidden; }
+      main { height:calc(100vh - 180px); }
+      #timerText {
+        position:relative; top:0; left:0; margin:auto;
+        line-height:1.1; overflow:hidden;
+      }
       svg { cursor:pointer; }
       html[data-theme="dark"] { filter: invert(1) hue-rotate(180deg); }
       @-moz-document url-prefix() { html[data-theme="dark"] { background-color:black; } }
@@ -61,7 +65,7 @@
         </div>
       </nav>
     </header>
-    <main class="container text-center">
+    <main class="container text-center d-flex flex-column">
       <noscript>
         <div class="alert alert-warning">JavaScript を ON にしてください</div>
       </noscript>
@@ -81,7 +85,9 @@
           </select>
         </div>
       </div>
-      <div id="timerText" class="alert alert-info">0:00</div>
+      <div class="alert alert-info d-flex justify-content-center align-items-center flex-grow-1">
+        <div id="timerText">0:00</div>
+      </div>
       <div id="timerFooter" class="row pb-3 justify-content-center">
         <div class="col-auto py-1">
           <button id="startButton" onclick="startTimer()" class="btn btn-primary btn-lg">スタート</button>

@@ -146,15 +146,6 @@ function resizeFontSize(node) {
     }
     return [maxWidth, fontSize * lines.length * lineHeight];
   }
-  function getNodeRect() {
-    const headerHeight = document.getElementById("header").clientHeight;
-    const timerHeader = document.getElementById("timerHeader");
-    const timerFooterHeight =
-      document.getElementById("timerFooter").clientHeight;
-    const height = document.documentElement.clientHeight - headerHeight -
-      timerHeader.clientHeight - timerFooterHeight;
-    return [timerHeader.clientWidth, height];
-  }
   function getPaddingRect(style) {
     const width = parseFloat(style.paddingLeft) +
       parseFloat(style.paddingRight);
@@ -166,7 +157,7 @@ function resizeFontSize(node) {
   const font = style.fontFamily;
   const fontSize = parseFloat(style.fontSize);
   const lineHeight = parseFloat(style.lineHeight) / fontSize;
-  const nodeRect = getNodeRect();
+  const nodeRect = [node.parentNode.clientWidth, node.parentNode.clientHeight];
   const textRect = getTextRect(node.textContent, fontSize, font, lineHeight);
   const paddingRect = getPaddingRect(style);
 
