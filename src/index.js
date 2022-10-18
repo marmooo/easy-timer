@@ -117,7 +117,6 @@ function tick() {
   }
   const sec = Math.floor(Math.abs(remainingTime) % 60000 / 1000);
   timerText.textContent = min + ":" + ("0" + sec).slice(-2);
-  resizeFontSize(timerText);
 }
 
 function changeSound() {
