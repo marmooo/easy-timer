@@ -1,4 +1,4 @@
-var CACHE_NAME = "2022-11-10 06:15";
+var CACHE_NAME = "2022-11-26 12:58";
 var urlsToCache = [
   "/easy-timer/",
   "/easy-timer/index.js",
@@ -10,7 +10,7 @@ var urlsToCache = [
   "/easy-timer/mp3/pipipi.mp3",
   "/easy-timer/mp3/kirakira.mp3",
   "/easy-timer/favicon/favicon.svg",
-  "https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css",
+  "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css",
   "https://cdn.jsdelivr.net/npm/nosleep.js@0.12.0/dist/NoSleep.min.js",
 ];
 
