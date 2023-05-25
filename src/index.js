@@ -8,6 +8,7 @@ let vibrateInterval;
 let duration = 0;
 let startTime;
 let remainingTime;
+loadConfig();
 
 function loadConfig() {
   if (localStorage.getItem("darkMode") == 1) {
@@ -22,7 +23,6 @@ function loadConfig() {
     document.getElementById("noSleepOff").classList.remove("d-none");
   }
 }
-loadConfig();
 
 function stopTimer() {
   clearInterval(timerInterval);
@@ -33,9 +33,7 @@ function stopTimer() {
   }
   const button = document.getElementById("startButton");
   button.textContent = "スタート";
-  button.onclick = function () {
-    startTimer();
-  };
+  button.onclick = startTimer;
 }
 
 function startTimer() {
@@ -43,17 +41,13 @@ function startTimer() {
   if (!isNaN(duration) && duration > 0) {
     const button = document.getElementById("startButton");
     button.textContent = "ストップ";
-    button.onclick = function () {
-      stopTimer();
-    };
+    button.onclick = stopTimer;
     if (remainingTime != 0) {
       startTime = Date.now() - duration + remainingTime;
     } else {
       startTime = Date.now();
     }
-    timerInterval = setInterval(function () {
-      tick();
-    }, 200);
+    timerInterval = setInterval(tick, 200);
   }
 }
 
@@ -98,7 +92,7 @@ function tick() {
     } else {
       if (sound.src.includes("none.mp3")) {
         if (!vibrateInterval) {
-          vibrateInterval = setInterval(function () {
+          vibrateInterval = setInterval(() => {
             navigator.vibrate(400);
           }, 400);
         }
@@ -222,6 +216,6 @@ document.getElementById("resetTimer").onclick = resetTimer;
 document.getElementById("timerValue").onchange = resetTimer;
 document.getElementById("changeSound").onchange = changeSound;
 document.getElementById("startButton").onclick = startTimer;
-window.addEventListener("resize", function () {
+window.addEventListener("resize", () => {
   resizeFontSize(timerText);
 });
