@@ -216,6 +216,6 @@ document.getElementById("resetTimer").onclick = resetTimer;
 document.getElementById("timerValue").onchange = resetTimer;
 document.getElementById("changeSound").onchange = changeSound;
 document.getElementById("startButton").onclick = startTimer;
-window.addEventListener("resize", () => {
+globalThis.addEventListener("resize", () => {
   resizeFontSize(timerText);
 });
