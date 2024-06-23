@@ -18,9 +18,13 @@ function loadConfig() {
     document.getElementById("bgmOn").classList.add("d-none");
     document.getElementById("bgmOff").classList.remove("d-none");
   }
-  if (localStorage.getItem("noSleep") != 1) {
-    document.getElementById("noSleepOn").classList.add("d-none");
-    document.getElementById("noSleepOff").classList.remove("d-none");
+  if (localStorage.getItem("noSleep") == 1) {
+    document.getElementById("noSleepOn").classList.remove("d-none");
+    document.getElementById("noSleepOff").classList.add("d-none");
+    document.addEventListener("pointerdown", () => {
+      alert("");
+      noSleep.enable();
+    }, { once: true });
   }
 }
 
