@@ -22,7 +22,6 @@ function loadConfig() {
     document.getElementById("noSleepOn").classList.remove("d-none");
     document.getElementById("noSleepOff").classList.add("d-none");
     document.addEventListener("pointerdown", () => {
-      alert("");
       noSleep.enable();
     }, { once: true });
   }
