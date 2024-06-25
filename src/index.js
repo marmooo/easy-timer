@@ -84,7 +84,6 @@ function resetTimer() {
   remainingTime = 0;
   const button = document.getElementById("startButton");
   button.textContent = "スタート";
-  button.onclick = startTimer;
   const timerText = document.getElementById("timerText");
   const timerValue = document.getElementById("timerValue");
   const t = parseInt(timerValue.value);
@@ -227,6 +226,7 @@ document.getElementById("resetTimer").onclick = resetTimer;
 document.getElementById("timerValue").onchange = resetTimer;
 document.getElementById("changeSound").onchange = changeSound;
 document.getElementById("startButton").onclick = toggleTimer;
+console.log(document.getElementById("startButton"));
 timerText.parentNode.onclick = toggleTimer;
 globalThis.addEventListener("resize", () => {
   resizeFontSize(timerText);
