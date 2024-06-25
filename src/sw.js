@@ -1,4 +1,4 @@
-const CACHE_NAME = "2024-06-25 11:00";
+const CACHE_NAME = "2024-06-25 11:10";
 const urlsToCache = [
   "/easy-timer/",
   "/easy-timer/index.js",
@@ -10,7 +10,6 @@ const urlsToCache = [
   "/easy-timer/mp3/pipipi.mp3",
   "/easy-timer/mp3/kirakira.mp3",
   "/easy-timer/favicon/favicon.svg",
-  "https://cdn.jsdelivr.net/npm/nosleep.js@0.12.0/dist/NoSleep.min.js",
 ];
 
 self.addEventListener("install", (event) => {

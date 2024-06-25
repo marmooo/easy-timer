@@ -1,4 +1,6 @@
-const noSleep = new NoSleep();
+import nosleepJs from "https://cdn.jsdelivr.net/npm/nosleep.js@0.12.0/+esm";
+
+const noSleep = new nosleepJs();
 const tmpCanvas = document.createElement("canvas");
 const bgm = new Audio("mp3/bgm.mp3");
 bgm.volume = 0.5;
