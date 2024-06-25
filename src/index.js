@@ -37,8 +37,16 @@ function toggleDarkMode() {
   }
 }
 
+function toggleTimer() {
+  if (timerInterval) {
+    stopTimer();
+  } else {
+    startTimer();
+  }
+}
+
 function stopTimer() {
-  clearInterval(timerInterval);
+  timerInterval = clearInterval(timerInterval);
   bgm.pause();
   sound.pause();
   if (vibrateInterval) {
@@ -46,7 +54,6 @@ function stopTimer() {
   }
   const button = document.getElementById("startButton");
   button.textContent = "スタート";
-  button.onclick = startTimer;
 }
 
 function startTimer() {
@@ -54,7 +61,6 @@ function startTimer() {
   if (!isNaN(duration) && duration > 0) {
     const button = document.getElementById("startButton");
     button.textContent = "ストップ";
-    button.onclick = stopTimer;
     if (remainingTime != 0) {
       startTime = Date.now() - duration + remainingTime;
     } else {
@@ -218,7 +224,8 @@ document.getElementById("toggleNoSleep").onclick = toggleNoSleep;
 document.getElementById("resetTimer").onclick = resetTimer;
 document.getElementById("timerValue").onchange = resetTimer;
 document.getElementById("changeSound").onchange = changeSound;
-document.getElementById("startButton").onclick = startTimer;
+document.getElementById("startButton").onclick = toggleTimer;
+timerText.parentNode.onclick = toggleTimer;
 globalThis.addEventListener("resize", () => {
   resizeFontSize(timerText);
 });
