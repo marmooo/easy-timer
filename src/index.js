@@ -1,6 +1,7 @@
 import nosleepJs from "https://cdn.jsdelivr.net/npm/nosleep.js@0.12.0/+esm";
 
 const noSleep = new nosleepJs();
+const timerText = document.getElementById("timerText");
 const tmpCanvas = document.createElement("canvas");
 const bgm = new Audio("mp3/bgm.mp3");
 bgm.volume = 0.5;
@@ -41,9 +42,11 @@ function toggleDarkMode() {
 
 function toggleTimer() {
   if (timerInterval) {
+    timerText.classList.add("opacity-75");
     stopTimer();
   } else {
     startTimer();
+    timerText.classList.remove("opacity-75");
   }
 }
 
@@ -216,7 +219,6 @@ function toggleBGM() {
   }
 }
 
-const timerText = document.getElementById("timerText");
 resizeFontSize(timerText);
 
 document.getElementById("toggleDarkMode").onclick = toggleDarkMode;
