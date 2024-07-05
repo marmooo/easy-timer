@@ -42,15 +42,14 @@ function toggleDarkMode() {
 
 function toggleTimer() {
   if (timerInterval) {
-    timerText.classList.add("opacity-75");
     stopTimer();
   } else {
     startTimer();
-    timerText.classList.remove("opacity-75");
   }
 }
 
 function stopTimer() {
+  timerText.classList.add("opacity-75");
   timerInterval = clearInterval(timerInterval);
   bgm.pause();
   sound.pause();
@@ -62,6 +61,7 @@ function stopTimer() {
 }
 
 function startTimer() {
+  timerText.classList.remove("opacity-75");
   sound.src = "mp3/" + document.getElementById("changeSound").value + ".mp3";
   if (!isNaN(duration) && duration > 0) {
     const button = document.getElementById("startButton");
@@ -76,18 +76,14 @@ function startTimer() {
 }
 
 function resetTimer() {
-  if (timerInterval) {
-    clearInterval(timerInterval);
-  }
+  timerText.classList.add("opacity-75");
+  if (timerInterval) clearInterval(timerInterval);
+  if (vibrateInterval) clearInterval(vibrateInterval);
   bgm.pause();
   sound.pause();
-  if (vibrateInterval) {
-    clearInterval(vibrateInterval);
-  }
   remainingTime = 0;
   const button = document.getElementById("startButton");
   button.textContent = "スタート";
-  const timerText = document.getElementById("timerText");
   const timerValue = document.getElementById("timerValue");
   const t = parseInt(timerValue.value);
   duration = t * 60000;
@@ -104,7 +100,6 @@ function resetTimer() {
 }
 
 function tick() {
-  const timerText = document.getElementById("timerText");
   let min;
   remainingTime = startTime + duration - Date.now();
   if (remainingTime < 0) { // time over
